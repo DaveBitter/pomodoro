@@ -1,5 +1,5 @@
 {
-  "name": "next-boilerplate",
+  "name": "pomodoro",
   "version": "1.0.0",
   "description": "Portfolio",
   "private": true,
@@ -8,7 +8,7 @@
     "url": "git+https://github.com/DaveBitter/portfolio.git"
   },
   "keywords": [
-    "timer",
+    "pomodoro",
     "react",
     "next",
     "typescript",
@@ -17,9 +17,9 @@
   "author": "Dave Bitter <daveybitter@gmail.com> (https://www.davebitter.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DaveBitter/next-boilerplate/issues"
+    "url": "https://github.com/DaveBitter/pomodoro/issues"
   },
-  "homepage": "https://github.com/DaveBitter/next-boilerplate#readme",
+  "homepage": "https://github.com/DaveBitter/pomodoro#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,5 +1,14 @@
 $color-white: #fff;
 $color-black: #222;
+$color-primary: #f87170;
+
+$color-base: #1f2141;
+$color-base-light: lighten($color-base, 10%);
+$color-base-lighter: lighten($color-base, 20%);
+$color-base-lightest: lighten($color-base, 30%);
+$color-base-dark: darken($color-base, 10%);
+$color-base-darker: darken($color-base, 20%);
+$color-base-darkest: darken($color-base, 40%);
 
 $color-gray: #8d9297;
 $color-gray-light: lighten($color-gray, 10%);

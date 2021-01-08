@@ -107,61 +107,62 @@ button {
 h1,
 .h1 {
     @include heading(h1);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 h2,
 .h2 {
     @include heading(h2);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 h3,
 .h3 {
     @include heading(h3);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 h4,
 .h4 {
     @include heading(h4);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 h5,
 .h5 {
     @include heading(h5);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 h6,
 .h6 {
     @include heading(h6);
+    color: $color-gray-lightest;
     margin: 0;
     margin-bottom: $spacing-med;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
 }
 
 p,
 .copy {
     @include text-s;
+    color: $color-gray-lightest;
     text-decoration: none;
-
-    [class$='--primary'] &,
-    .section--primary &,
-    .overlay--primary & {
-        color: $color-white;
-    }
 
     &--large {
         @include heading(h5);

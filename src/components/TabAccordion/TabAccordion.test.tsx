@@ -11,7 +11,7 @@ const setup = (props: any) => {
         ...props
     };
 
-    const wrapper = mount(<TabAccordion {..._props} />);
+    const wrapper = mount(<TabAccordion {..._props}></TabAccordion>);
 
     return {
         _props,

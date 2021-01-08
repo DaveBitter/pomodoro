@@ -19,7 +19,7 @@ interface IProps {
 const App = ({ Component, pageProps }: IProps) => {
     return <>
         <Head>
-            <title>Timer</title>
+            <title>Pomodoro</title>
         </Head>
 
         <main>

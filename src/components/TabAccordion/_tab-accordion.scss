@@ -13,18 +13,36 @@
     &__tabs {
         display: flex;
         justify-content: stretch;
+        padding: $spacing-xs;
+        border-radius: $border-radius-xxl;
+        background-color: $color-base-dark;
     }
 
     &__tab {
         display: flex;
         align-items: stretch;
         flex-grow: 1;
-        flex-basis: 0;
+        padding: $spacing-xs;
+        border-radius: $border-radius-xxl;
+        transition: background-color $transition-timing-fast $transition-easing-cubic;
+
+        &[data-is-active='true'] {
+            background-color: $color-primary;
+
+            .tab-accordion__tab-button {
+                color: $color-base;
+            }
+        }
 
         &-button {
+            @include text-xs;
             width: 100%;
+            font-weight: $font-weight-bold;
             border: none;
+            color: $color-gray-dark;
             background: transparent;
+            cursor: pointer;
+            transition: color $transition-timing-fast $transition-easing-cubic;
         }
     }
 
