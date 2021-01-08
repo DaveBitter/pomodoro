@@ -1,24 +1,18 @@
 // Libs
 import React, { useState } from 'react';
-
-// Utils
-
-// Resources
+import { storiesOf } from '@storybook/react';
 
 // Components
-import TabAccordion from '../src/components/TabAccordion/TabAccordion';
+import TabAccordion from './TabAccordion';
 
-// Interface
-interface IProps { }
+// Story
+storiesOf('General', module)
+    .add('TabAccordion', () => {
+        type tabs = 'TIMER' | 'SHORT_BREAK' | 'LONG_BREAK'
 
-type tabs = 'TIMER' | 'SHORT_BREAK' | 'LONG_BREAK'
+        const [activeTab, setActiveTab] = useState<tabs>('TIMER');
 
-// Component
-const Home = ({ }: IProps) => {
-    const [activeTab, setActiveTab] = useState<tabs>('TIMER');
-
-    return <>
-        <TabAccordion>
+        return <TabAccordion>
             <TabAccordion.Tabs>
                 <TabAccordion.Tab handleClick={() => setActiveTab('TIMER')} isActive={activeTab === 'TIMER'}>timer</TabAccordion.Tab>
                 <TabAccordion.Tab handleClick={() => setActiveTab('SHORT_BREAK')} isActive={activeTab === 'SHORT_BREAK'}>short break</TabAccordion.Tab>
@@ -30,10 +24,4 @@ const Home = ({ }: IProps) => {
                 <TabAccordion.Panel isActive={activeTab === 'LONG_BREAK'}>LONG_BREAK CONTENT</TabAccordion.Panel>
             </TabAccordion.Panels>
         </TabAccordion>
-    </>;
-};
-
-// Props
-Home.defaultProps = {};
-
-export default Home;
+    });

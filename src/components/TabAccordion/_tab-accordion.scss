@@ -1,0 +1,41 @@
+.tab-accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    &__tabs,
+    &__panels {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: stretch;
+    }
+
+    &__tab {
+        display: flex;
+        align-items: stretch;
+        flex-grow: 1;
+        flex-basis: 0;
+
+        &-button {
+            width: 100%;
+            border: none;
+            background: transparent;
+        }
+    }
+
+    &__panel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing-med;
+
+        &[data-is-active='false'] {
+            display: none;
+        }
+    }
+}
