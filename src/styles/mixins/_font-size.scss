@@ -1,0 +1,30 @@
+/**
+ * Mixin to provide rem and px fallback units for font sizes
+ *
+ * @param {Number} $size - Size of font based on rem units
+ */
+
+@mixin font-size($size: 1.6) {
+    font-size: ($size * 10) + px;
+    font-size: $size + rem;
+}
+
+/*
+ * @WARNING: Here be dragons
+ *
+ * @NOTE: Please don't mess with these unless you're prepared to spend the rest of your day
+ * @NOTE: figuring out what broke where. Browser support for word-break is very tricky. GL!
+ */
+@mixin break-word {
+    /* Warning: Needed for oldIE support, but words are broken up letter-by-letter */
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+    /* Note: Using hyphens to offer hyphenation to browsers and OS's that support this */
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}

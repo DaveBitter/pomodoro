@@ -1,0 +1,186 @@
+// Falbacks
+@mixin font-stack-base {
+    font-family: 'Public Sans', 'Open Sans', sans-serif;
+}
+
+@mixin text-link {
+    font-style: italic;
+    font-size: rem(20px);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@mixin text-jumbo {
+    font-size: rem(120px);
+}
+
+@mixin text-xxxl {
+    font-size: rem(64px);
+}
+
+@mixin text-xxl {
+    font-size: rem(48px);
+}
+
+@mixin text-xl {
+    font-size: rem(36px);
+}
+
+@mixin text-l {
+    font-size: rem(24px);
+}
+
+@mixin text-m {
+    font-size: rem(18px);
+}
+
+@mixin text-s {
+    font-size: rem(16px);
+    line-height: 1.6;
+}
+
+@mixin text-xs {
+    font-size: rem(14px);
+    line-height: rem(20px);
+}
+
+@mixin text-xxs {
+    font-size: rem(12px);
+}
+
+/* stylelint-disable */
+@mixin heading($size) {
+    font-size:
+        map-get((
+            h1: rem(32px),
+            h2: rem(24px),
+            h3: rem(24px),
+            h4: rem(24px),
+            h5: rem(20px),
+            h6: rem(16px)
+        ), $size);
+    line-height:
+        map-get((
+            h1: 1.2,
+            h2: 1.2,
+            h3: 1.2,
+            h4: 1.2,
+            h5: 1.2,
+            h6: 1.2
+        ), $size);
+    font-weight: normal;
+
+    @include mq($mq-tab--sml) {
+        font-size:
+        map-get((
+            h1: rem(45px),
+            h2: rem(32px),
+            h3: rem(24px),
+            h4: rem(24px),
+            h5: rem(20px),
+            h6: rem(16px)
+        ), $size);
+    }
+
+    @include mq($mq-desk--sml) {
+        font-size:
+        map-get((
+            h1: rem(60px),
+            h2: rem(45px),
+            h3: rem(32px),
+            h4: rem(24px),
+            h5: rem(20px),
+            h6: rem(16px)
+        ), $size);
+    }
+}
+/* stylelint-enable */
+
+// Elements
+
+body,
+input,
+button {
+    @include font-stack-base;
+}
+
+h1,
+.h1 {
+    @include heading(h1);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+h2,
+.h2 {
+    @include heading(h2);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+h3,
+.h3 {
+    @include heading(h3);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+h4,
+.h4 {
+    @include heading(h4);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+h5,
+.h5 {
+    @include heading(h5);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+h6,
+.h6 {
+    @include heading(h6);
+    margin: 0;
+    margin-bottom: $spacing-med;
+    font-weight: $font-weight-light;
+}
+
+p,
+.copy {
+    @include text-s;
+    text-decoration: none;
+
+    [class$='--primary'] &,
+    .section--primary &,
+    .overlay--primary & {
+        color: $color-white;
+    }
+
+    &--large {
+        @include heading(h5);
+
+        p {
+            @include heading(h5);
+        }
+    }
+
+    &--jumbo {
+        @include heading(h3);
+        line-height: 1.6;
+
+        p {
+            @include heading(h3);
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+}

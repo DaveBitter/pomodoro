@@ -1,0 +1,80 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "amd": true,
+        "browser": true,
+        "es6": true,
+        "mocha": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "import",
+        "react"
+    ],
+    "settings": {
+        "import/ignore": [
+            "node_modules",
+            ".png$",
+            ".jpg$"
+        ]
+    },
+    "globals": {
+        "window": true,
+        "document": true
+    },
+    "rules": {
+        "import/namespace": [
+            2,
+            {
+                "allowComputed": true
+            }
+        ],
+        "import/no-duplicates": "off",
+        "import/no-named-as-default": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "linebreak-style": "off",
+        "max-len": "off",
+        "no-console": [
+            1,
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-use-before-define": 0,
+        "react/jsx-filename-extension": 0,
+        "react/forbid-prop-types": "off",
+        "react/no-array-index-key": "off",
+        "react/no-danger": "off",
+        "react/prop-types": 0,
+        "react/require-default-props": "off",
+        "semi": 1,
+        "semi-spacing": 2
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.test.js"
+            ],
+            "rules": {
+                "react/react-in-jsx-scope": "off",
+                "no-undef": "off"
+            }
+        }
+    ]
+}

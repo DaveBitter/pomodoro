@@ -1,0 +1,32 @@
+html {
+    overflow-x: hidden;
+}
+
+body,
+#__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+svg {
+    width: $spacing-med;
+}
+
+/*
+    This will hide the focus indicator if the element receives focus via the mouse,
+    but it will still show up on keyboard focus.
+*/
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}

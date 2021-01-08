@@ -1,0 +1,28 @@
+/**
+ * Mixin to provide short-hand media query syntax
+ *
+ * @param {Number} $viewport - Size of the viewport
+ * @param {String} $type-of-constraint - Orientation of targeted media query
+ */
+
+@mixin mq($viewport, $type-of-constraint: width, $direction: min) {
+    @media screen and (#{$direction}-#{$type-of-constraint}: $viewport) {
+        @content;
+    }
+}
+
+/**
+ * Example:
+ *
+ * ---- for min-width media query ----
+ *
+ *  @include mq(1080px) {
+ *      display: none;
+ *  }
+ *
+ * ---- for min-height media query ----
+ *
+ *  @include mq(1080px, height) {
+ *      display: none;
+ *  }
+ */

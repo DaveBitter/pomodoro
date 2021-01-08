@@ -1,0 +1,37 @@
+/* stylelint-disable */
+@font-face {
+	font-family: 'Public Sans';
+	src:
+   		local('Public Sans Light'),
+		local('PublicSans-Light'),
+		url('/static/fonts/public-sans/PublicSans-Regular.woff2') format('woff2'),
+		url('/static/fonts/public-sans/PublicSans-Regular.woff') format('woff');
+	font-weight: $font-weight-light;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Public Sans';
+	src:
+   		local('Public Sans Regular'),
+		local('PublicSans-Regular'),
+		url('/static/fonts/public-sans/PublicSans-Medium.woff2') format('woff2'),
+		url('/static/fonts/public-sans/PublicSans-Medium.woff') format('woff');
+	font-weight: $font-weight-regular;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Public Sans';
+	src:
+   		local('Public Sans Bold'),
+		local('PublicSans-Bold'),
+		url('/static/fonts/public-sans/PublicSans-SemiBold.woff2') format('woff2'),
+		url('/static/fonts/public-sans/PublicSans-SemiBold.woff') format('woff');
+	font-weight: $font-weight-bold;
+	font-style: normal;
+	font-display: block;
+}
+/* stylelint-enable */

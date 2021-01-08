@@ -1,0 +1,92 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-declaration-strict-value"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [
+      null
+    ],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-block"
+        ]
+      }
+    ],
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": [
+          "if",
+          "else"
+        ]
+      }
+    ],
+    "declaration-empty-line-before": "never",
+    "indentation": 4,
+    "no-descending-specificity": null,
+    "scale-unlimited/declaration-strict-value": [
+      "/color/",
+      {
+        "ignoreFunctions": false,
+        "ignoreKeywords": [
+          "rgba",
+          "currentColor",
+          "transparent",
+          "inherit"
+        ],
+        "ignoreVariables": true
+      }
+    ],
+    "scss/at-else-closing-brace-newline-after": null,
+    "scss/at-else-closing-brace-space-after": null,
+    "scss/at-else-empty-line-before": null,
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-function-pattern": null,
+    "scss/at-if-closing-brace-newline-after": null,
+    "scss/at-if-closing-brace-space-after": null,
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension-blacklist": null,
+    "scss/at-import-partial-extension-whitelist": null,
+    "scss/at-mixin-argumentless-call-parentheses": "never",
+    "scss/at-mixin-pattern": null,
+    "scss/declaration-nested-properties": "never",
+    "scss/declaration-nested-properties-no-divided-groups": true,
+    "scss/dollar-variable-colon-newline-after": null,
+    "scss/dollar-variable-colon-space-after": "always",
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/dollar-variable-no-missing-interpolation": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "between-comments",
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "scss/double-slash-comment-inline": null,
+    "scss/double-slash-comment-whitespace-inside": "always",
+    "scss/media-feature-value-dollar-variable": null,
+    "scss/operator-no-newline-after": true,
+    "scss/operator-no-newline-before": true,
+    "scss/operator-no-unspaced": true,
+    "scss/partial-no-import": null,
+    "scss/percent-placeholder-pattern": null,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "declaration-block-single-line-max-declarations": null
+  }
+}
