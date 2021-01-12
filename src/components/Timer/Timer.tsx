@@ -1,5 +1,5 @@
 // Libs
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Utils
 import { playStateType } from '../../../pages/index';;
@@ -68,9 +68,28 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
 
     const handleClick = () => timeLeft > 0 ? handleToggle() : setTimeLeft(duration);
 
+    const [circumference, setCircumference] = useState(0);
+    const [offset, setOffset] = useState(0);
+    const circleRef = useRef<SVGCircleElement | null>(null)
+
+    useEffect(() => {
+        if (!circleRef.current) { return; }
+
+        const radius = circleRef.current.r.baseVal.value;
+        const updatedCircumference = radius && radius * 2 * Math.PI;
+
+        const updatedOffset = updatedCircumference - timeLeft / duration * updatedCircumference;
+
+        setCircumference(updatedCircumference);
+        setOffset(updatedOffset);
+    }, [timeLeft])
+
     return <div className='timer' {...attributes}>
-        {getFormattedTimeLeft(timeLeft)}
-        {getLabelForPlaystate()}
+        <span className='timer__counter'>{getFormattedTimeLeft(timeLeft)}</span>
+        <svg className='timer__stroke' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle ref={circleRef} cx="50" cy="50" r="50" style={{ strokeDasharray: `${circumference} ${circumference}`, strokeDashoffset: `${offset}` }} />
+        </svg>
+        <span className='timer__play-state'>{getLabelForPlaystate()}</span>
         <button className='timer__toggle' onClick={handleClick}>{getLabelForPlaystate()}</button>
     </div>;
 };
