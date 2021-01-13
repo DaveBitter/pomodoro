@@ -1,5 +1,13 @@
 {
     "name": "Pomodoro",
+    "short_name": "Pomodoro",
+    "description": "A neumorphic Pomodoro/Timer to help you stay on track!",
+    "scope": "/",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#1f2141",
+    "theme_color": "#1f2141",
     "icons": [
         {
             "src": "\/img/favicons/android-icon-36x36.png",
@@ -36,6 +44,12 @@
             "sizes": "192x192",
             "type": "image\/png",
             "density": "4.0"
+        },
+        {
+            "src": "\/img/favicons/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image\/png",
+            "purpose": "any maskable"
         }
     ]
 }

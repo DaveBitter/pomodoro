@@ -1,13 +1,14 @@
 // Libs
 import React from 'react';
-import Head from "next/head";
 
 // Utils
+import useServiceWorker from '../src/static/js/utils/hooks/useServiceWorker';
 
 // Resources
 import '../src/styles/all.scss';
 
 // Components
+import SiteMeta from '../src/components/Site/SiteMeta/SiteMeta';
 
 // Interface
 interface IProps {
@@ -17,10 +18,10 @@ interface IProps {
 
 // Component
 const App = ({ Component, pageProps }: IProps) => {
+    useServiceWorker();
+
     return <>
-        <Head>
-            <title>Pomodoro</title>
-        </Head>
+        <SiteMeta />
 
         <main>
             <Component {...pageProps} />

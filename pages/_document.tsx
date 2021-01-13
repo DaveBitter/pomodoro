@@ -1,6 +1,6 @@
 // Libs
 import React from 'react';
-import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import NextDocument, { Html, Main, Head, NextScript } from "next/document";
 
 // Utils
 
@@ -12,8 +12,7 @@ import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 class Document extends NextDocument {
     render() {
         return <Html lang='en'>
-            <Head>
-            </Head>
+            <Head></Head>
             <body>
                 <Main />
                 <NextScript />
