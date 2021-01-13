@@ -28,7 +28,6 @@ const Home = ({ }: IProps) => {
     const handleToggle = () => setActiveTabPlayState(activeTabPlayState === 'ACTIVE' ? 'PAUSED' : 'ACTIVE');
 
     return <>
-        <h1 className='h3'>pomodoro</h1>
         <TabAccordion>
             <TabAccordion.Tabs>
                 <TabAccordion.Tab handleClick={() => handleTabSelect('POMODORO')} isActive={activeTab === 'POMODORO'}>pomodoro</TabAccordion.Tab>

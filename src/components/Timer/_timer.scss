@@ -1,23 +1,46 @@
+$timer-size: 20rem;
+$timer-scale-factor: 1.5;
+$timer-background-color: darken($color-base-dark, 2%);
+
 .timer {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80vw;
-    height: 80vw;
-    gap: $spacing-med;
-    border-radius: 100%;
-    background-color: $color-base-dark;
+    width: $timer-size;
+    height: $timer-size;
+    margin-top: 2rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, $color-base-darker, $color-base-light);
+    box-shadow: 2rem 2rem 4rem $color-base-dark, -2rem -2rem 4rem $color-base-light;
+    transition: transform $transition-timing-fast $transition-easing-cubic;
 
-    @include mq($mq-tab--sml) {
-        width: 40vw;
-        height: 40vw;
+    &::before {
+        content: '';
+        position: absolute;
+        top: $spacing-med;
+        right: $spacing-med;
+        bottom: $spacing-med;
+        left: $spacing-med;
+        border-radius: 50%;
+        background-color: $timer-background-color;
     }
 
-    @include mq($mq-desk--lrg) {
-        width: 30vw;
-        height: 30vw;
+    @include mq($mq-tab--sml) {
+        transform: scale($timer-scale-factor);
+        transform-origin: top left;
+    }
+
+    &-wrapper {
+        display: block;
+        width: $timer-size;
+        height: $timer-size;
+
+        @include mq($mq-tab--sml) {
+            width: calc(#{$timer-size} * #{$timer-scale-factor});
+            height: calc(#{$timer-size} * #{$timer-scale-factor});
+        }
     }
 
     &__stroke,
@@ -35,34 +58,32 @@
         overflow: visible !important;
         fill: none;
         stroke: $color-primary;
-        transform: rotate(-90deg);
+        stroke-width: $spacing-xxxs;
+        stroke-linecap: round;
+        transform: rotate(-90deg) scale(0.8);
+    }
+
+    &__toggle,
+    &__counter,
+    &__play-state {
+        z-index: 1;
     }
 
     &__counter {
-        @include text-xl;
+        @include text-xxxl;
         font-weight: $font-weight-bold;
-
-        @include mq($mq-mob) {
-            @include text-xxxl;
-        }
-
-        @include mq($mq-desk--sml) {
-            @include text-jumbo;
-        }
     }
 
     &__play-state {
-        @include text-m;
+        @include text-xs;
         text-transform: uppercase;
+        margin-left: 0.5rem;
         letter-spacing: 1rem;
-
-        @include mq($mq-mob) {
-            @include text-l;
-        }
-
-        @include mq($mq-desk--sml) {
-            @include text-xl;
-        }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding-top: $spacing-sml;
+        transform: translate(-50%, 100%);
     }
 
     &__toggle {

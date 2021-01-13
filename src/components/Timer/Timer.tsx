@@ -84,13 +84,15 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
         setOffset(updatedOffset);
     }, [timeLeft])
 
-    return <div className='timer' {...attributes}>
-        <span className='timer__counter'>{getFormattedTimeLeft(timeLeft)}</span>
-        <svg className='timer__stroke' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle ref={circleRef} cx="50" cy="50" r="50" style={{ strokeDasharray: `${circumference} ${circumference}`, strokeDashoffset: `${offset}` }} />
-        </svg>
-        <span className='timer__play-state'>{getLabelForPlaystate()}</span>
-        <button className='timer__toggle' onClick={handleClick}>{getLabelForPlaystate()}</button>
+    return <div className='timer-wrapper'>
+        <div className='timer' {...attributes}>
+            <span className='timer__counter'>{getFormattedTimeLeft(timeLeft)}</span>
+            <svg className='timer__stroke' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle ref={circleRef} cx="50" cy="50" r="50" style={{ strokeDasharray: `${circumference} ${circumference}`, strokeDashoffset: `${offset}` }} />
+            </svg>
+            <span className='timer__play-state'>{getLabelForPlaystate()}</span>
+            <button className='timer__toggle' onClick={handleClick}>{getLabelForPlaystate()}</button>
+        </div>
     </div>;
 };
 

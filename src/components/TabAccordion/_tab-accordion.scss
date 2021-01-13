@@ -11,6 +11,7 @@
     }
 
     &__tabs {
+        z-index: 1;
         display: flex;
         justify-content: stretch;
         padding: $spacing-xs;
