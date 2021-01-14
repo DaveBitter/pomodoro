@@ -33,6 +33,7 @@ $box-shadow-default--hard: 0 rem(2px) rem(5px) rgba($color-black, 0.1);
 $box-shadow-default--soft: 0 rem(5px) rem(10px) rgba($color-black, 0.1);
 
 /** Transition & animation */
+$transition-timing-faster: 0.1s;
 $transition-timing-fast: 0.15s;
 $transition-timing-med: 0.25s;
 $transition-timing-slow: 0.4s;

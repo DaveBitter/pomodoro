@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 // Utils
 
 // Resources
+// @ts-ignore
+import CogIcon from '../src/static/img/icons/cog.svg';
 
 // Components
+import Modal from '../src/components/Modal/Modal';
 import TabAccordion from '../src/components/TabAccordion/TabAccordion';
 import Timer from '../src/components/Timer/Timer';
 
@@ -17,6 +20,7 @@ export type tabType = 'POMODORO' | 'SHORT_BREAK' | 'LONG_BREAK'
 
 // Component
 const Home = ({ }: IProps) => {
+    const [settingsModalIsOpen, setSettingsModalIsOpen] = useState<boolean>(false)
     const [activeTab, setActiveTab] = useState<tabType>('POMODORO');
     const [activeTabPlayState, setActiveTabPlayState] = useState<playStateType>('INITIAL');
 
@@ -46,6 +50,9 @@ const Home = ({ }: IProps) => {
                 </TabAccordion.Panel>
             </TabAccordion.Panels>
         </TabAccordion>
+        <Modal heading='Settings' isOpen={settingsModalIsOpen} trigger={<Modal.Trigger handleOpen={() => setSettingsModalIsOpen(true)}><CogIcon /></Modal.Trigger>} handleClose={() => setSettingsModalIsOpen(false)}>
+            <h2>Coming soon</h2>
+        </Modal>
     </>;
 };
 

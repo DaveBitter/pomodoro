@@ -36,10 +36,12 @@ $timer-background-color: darken($color-base-dark, 2%);
         display: block;
         width: $timer-size;
         height: $timer-size;
+        margin-bottom: $spacing-xl;
 
         @include mq($mq-tab--sml) {
             width: calc(#{$timer-size} * #{$timer-scale-factor});
             height: calc(#{$timer-size} * #{$timer-scale-factor});
+            margin-bottom: calc(#{$spacing-xl} * #{$timer-scale-factor});
         }
     }
 

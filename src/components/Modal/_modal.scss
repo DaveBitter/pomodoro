@@ -2,6 +2,7 @@ $modal-backdrop-color: rgba($color-black, 0.5);
 
 .modal {
     &::before {
+        z-index: 1;
         content: '';
         position: fixed;
         top: 0;
@@ -12,7 +13,7 @@ $modal-backdrop-color: rgba($color-black, 0.5);
         backdrop-filter: blur(2px);
         opacity: 0;
         pointer-events: none;
-        transition: opacity $transition-timing-fast $transition-easing-cubic;
+        transition: opacity $transition-timing-faster $transition-easing-cubic;
     }
 
     &[data-is-open='true']::before {
@@ -36,7 +37,7 @@ $modal-backdrop-color: rgba($color-black, 0.5);
         opacity: 0;
         transform: scale(0.9);
         pointer-events: none;
-        transition: opacity $transition-timing-fast $transition-easing-cubic;
+        transition: opacity $transition-timing-faster $transition-easing-cubic;
 
         .modal[data-is-open='true'] & {
             opacity: 1;
@@ -99,5 +100,9 @@ $modal-backdrop-color: rgba($color-black, 0.5);
         flex: 1;
         overflow-x: hidden;
         overflow-y: auto;
+    }
+
+    &__trigger {
+        fill: $color-gray-dark;
     }
 }
