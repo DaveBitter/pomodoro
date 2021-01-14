@@ -25,6 +25,7 @@ const getFormattedTimeLeft = (timeLeft: number) => {
 }
 
 // Component
+let interval: any;
 const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => {
     const [timeLeft, setTimeLeft] = useState<number>(duration);
 
@@ -32,15 +33,17 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
         switch (playState) {
             case 'INITIAL':
                 setTimeLeft(duration);
+                clearInterval(interval)
                 return;
             case 'PAUSED':
+                clearInterval(interval)
                 return;
             case 'ACTIVE':
                 if (timeLeft <= 0) {
                     return;
                 }
 
-                setTimeout(() => {
+                interval = setTimeout(() => {
                     setTimeLeft(timeLeft - 1000);
                 }, 1000)
                 return;
