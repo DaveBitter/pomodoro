@@ -1,0 +1,103 @@
+$modal-backdrop-color: rgba($color-black, 0.5);
+
+.modal {
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $modal-backdrop-color;
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $transition-timing-fast $transition-easing-cubic;
+    }
+
+    &[data-is-open='true']::before {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    &__container {
+        z-index: 1;
+        position: fixed;
+        top: $spacing-med;
+        right: $spacing-sml;
+        bottom: $spacing-med;
+        left: $spacing-sml;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        padding: $spacing-sml;
+        border-radius: $border-radius-xxl;
+        background-color: $color-white;
+        opacity: 0;
+        transform: scale(0.9);
+        pointer-events: none;
+        transition: opacity $transition-timing-fast $transition-easing-cubic;
+
+        .modal[data-is-open='true'] & {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        @include mq($mq-tab--sml) {
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            max-width: 40rem;
+            max-height: 40rem;
+            padding: $spacing-lrg;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-sml;
+        padding-bottom: $spacing-sml;
+        border-bottom: 1px solid $color-gray-lightest;
+    }
+
+    &__heading {
+        margin: 0;
+        color: $color-black;
+    }
+
+    &__trigger,
+    &__close {
+        border: none;
+        cursor: pointer;
+        background: none;
+    }
+
+    &__close {
+        position: relative;
+        width: $spacing-lrg;
+        height: $spacing-lrg;
+        font-size: 0;
+
+        &::after {
+            @include text-xl;
+            content: '×';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: $color-gray-light;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__content {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

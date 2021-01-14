@@ -9,7 +9,7 @@ import registerServiceWorker from '../registerServiceWorker';
 // Component
 const useServiceWorker = (): null => {
     useEffect(() => {
-        // if (process.env.NODE_ENV !== 'production') { return; }
+        if (process.env.NODE_ENV !== 'production') { return; }
 
         registerServiceWorker();
     }, []);
