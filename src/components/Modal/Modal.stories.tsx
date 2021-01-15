@@ -7,4 +7,4 @@ import Modal from './Modal';
 
 // Story
 storiesOf('General', module)
-    .add('Modal', () => <Modal />);
+    .add('Modal', () => <Modal isOpen={true} trigger='trigger' handleClose={() => { }}>Modal</Modal>);

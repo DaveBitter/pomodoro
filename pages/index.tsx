@@ -21,10 +21,11 @@ export type tabType = 'POMODORO' | 'SHORT_BREAK' | 'LONG_BREAK'
 
 // Component
 const Home = ({ }: IProps) => {
+    const [hasCheckedCachedSettings, setHasCheckedCachedSettings] = useState<boolean>(false);
     const [settings, setSettings] = useReducer((state: any, action: any) => ({ ...state, ...action }), {
         pomodoro: 25,
         shortBreak: 5,
-        longBreak: 5,
+        longBreak: 15,
         font: 'Public Sans',
         color: 'orange'
     })
@@ -56,13 +57,27 @@ const Home = ({ }: IProps) => {
     }
 
     useEffect(() => {
+        const cachedSettings = localStorage.getItem('settings');
+
+        if (cachedSettings) {
+            setSettings(JSON.parse(cachedSettings));
+        }
+
+        setTimeout(() => {
+            setHasCheckedCachedSettings(true)
+        }, 0);
+    }, []);
+
+    useEffect(() => {
         const root = document.documentElement;
 
         root.style.setProperty('--color-primary', `var(--color-${settings.color})`);
         root.style.setProperty('--font-primary', settings.font);
+
+        localStorage.setItem('settings', JSON.stringify(settings))
     }, [settings])
 
-    console.log(settings);
+    if (!hasCheckedCachedSettings) { return null; }
 
     return <>
         <TabAccordion>
