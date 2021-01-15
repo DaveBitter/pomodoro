@@ -1,6 +1,9 @@
 $color-white: #fff;
 $color-black: #222;
-$color-primary: #f87170;
+
+$color-orange: #f87170;
+$color-teal: #6ff3fa;
+$color-purple: #db80f6;
 
 $color-base: #1f2141;
 $color-base-light: lighten($color-base, 5%);
@@ -17,3 +20,12 @@ $color-gray-lightest: lighten($color-gray, 25%);
 $color-gray-dark: darken($color-gray, 5%);
 $color-gray-darker: darken($color-gray, 10%);
 $color-gray-darkest: darken($color-gray, 15%);
+
+:root {
+    --color-orange: #f87170;
+    --color-teal: #6ff3fa;
+    --color-purple: #db80f6;
+    --color-primary: var(--color-orange);
+}
+
+$color-primary: var(--color-primary);

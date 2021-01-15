@@ -87,6 +87,10 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
         setOffset(updatedOffset);
     }, [timeLeft])
 
+    useEffect(() => {
+        setTimeLeft(duration)
+    }, [duration])
+
     return <div className='timer-wrapper'>
         <div className='timer' {...attributes}>
             <span className='timer__counter'>{getFormattedTimeLeft(timeLeft)}</span>

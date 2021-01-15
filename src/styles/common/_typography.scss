@@ -1,6 +1,10 @@
 // Falbacks
-@mixin font-stack-base {
-    font-family: 'Public Sans', 'Open Sans', sans-serif;
+:root {
+    --font-primary: 'Public Sans';
+}
+
+@mixin font-stack {
+    font-family: var(--font-primary), 'Open Sans', sans-serif;
 }
 
 @mixin text-link {
@@ -97,11 +101,10 @@
 /* stylelint-enable */
 
 // Elements
-
 body,
 input,
 button {
-    @include font-stack-base;
+    @include font-stack;
 }
 
 h1,

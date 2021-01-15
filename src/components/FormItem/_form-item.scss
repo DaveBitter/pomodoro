@@ -1,16 +1,151 @@
+$form-item-input-background-color: lighten($color-gray-lightest, 10%);
+
 .form-item {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: $spacing-med 0;
 
     + .form-item {
         border-top: 1px solid $color-gray-lightest;
     }
 
-    &__label {
+    &__title {
         @include text-xxs;
+        margin: $spacing-xs 0;
         font-weight: $font-weight-bold;
         text-transform: uppercase;
         letter-spacing: 0.25rem;
+        color: $color-black;
+    }
+
+    &__group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $spacing-med;
+    }
+
+    &__group-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &[data-type='number'] {
+            flex: 1;
+            min-width: 10rem;
+        }
+    }
+
+    &__label {
+        @include text-xxs;
+        margin-bottom: $spacing-xs;
+        text-align: left;
+        font-weight: $font-weight-bold;
+        color: $color-gray-light;
+        cursor: pointer;
+
+        [data-type='font'] &,
+        [data-type='color'] & {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 100%;
+            color: $color-black;
+            background-color: $color-gray-lightest;
+            transition:
+                color $transition-timing-fast $transition-easing-cubic,
+                background-color $transition-timing-fast $transition-easing-cubic;
+        }
+
+        [data-type='color'] & {
+            font-size: 0;
+        }
+    }
+
+    &__input {
+        padding: $spacing-sml;
+        border: none;
+        font-weight: $font-weight-bold;
+        color: $color-black;
+        background-color: $form-item-input-background-color;
+        border-radius: $border-radius-lrg;
+
+        &[type='number'] {
+            width: 100%;
+            max-width: 100%;
+
+            @include mq($mq-tab--sml) {
+                max-width: 10rem;
+            }
+        }
+
+        &[type='submit'] {
+            width: 100%;
+            max-width: 9rem;
+            border-radius: $border-radius-xxl;
+            color: $color-white;
+            background-color: $color-primary;
+        }
+
+        [data-type='font'] &,
+        [data-type='color'] & {
+            z-index: 1;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        [data-type='font'] & {
+            &:checked ~ .form-item__label {
+                color: $color-white;
+                background-color: $color-base;
+            }
+
+            &[value='Public Sans'] ~ .form-item__label {
+                font-family: 'Public Sans', sans-serif;
+            }
+
+            &[value='Tahoma'] ~ .form-item__label {
+                font-family: 'Tahoma', sans-serif;
+            }
+
+            &[value='Georgia'] ~ .form-item__label {
+                font-family: 'Georgia', sans-serif;
+            }
+        }
+
+        [data-type='color'] & {
+            &:checked ~ .form-item__label::after {
+                content: '✓';
+                font-size: 1rem;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: $font-weight-bold;
+                color: $color-base;
+            }
+
+            &[value='orange'] ~ .form-item__label {
+                background-color: $color-orange;
+            }
+
+            &[value='teal'] ~ .form-item__label {
+                background-color: $color-teal;
+            }
+
+            &[value='purple'] ~ .form-item__label {
+                background-color: $color-purple;
+            }
+        }
     }
 }
