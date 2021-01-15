@@ -1,0 +1,16 @@
+.form-item {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-med 0;
+
+    + .form-item {
+        border-top: 1px solid $color-gray-lightest;
+    }
+
+    &__label {
+        @include text-xxs;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.25rem;
+    }
+}
