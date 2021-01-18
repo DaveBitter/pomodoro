@@ -6,5 +6,7 @@ import { storiesOf } from '@storybook/react';
 import Modal from './Modal';
 
 // Story
-storiesOf('General', module)
-    .add('Modal', () => <Modal isOpen={true} trigger='trigger' handleClose={() => { }}>Modal</Modal>);
+storiesOf('Modal', module)
+    .add('default', () => <Modal heading='Modal heading' isOpen={true} trigger='trigger' handleClose={() => { }}>
+        <h2>You can put any content in this container</h2>
+    </Modal>);

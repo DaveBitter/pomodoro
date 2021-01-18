@@ -38,5 +38,5 @@ export default create({
   inputTextColor: colors.white,
   inputBorderRadius: 4,
 
-  brandTitle: 'Dave Bitter Portfolio'
+  brandTitle: 'Dave Bitter | Pomodoro'
 });

@@ -1,11 +1,11 @@
 {
   "name": "pomodoro",
   "version": "1.0.0",
-  "description": "Portfolio",
+  "description": "A neumorphic Pomodoro/Timer to help you stay on track!",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaveBitter/portfolio.git"
+    "url": "git+https://github.com/DaveBitter/pomodoro.git"
   },
   "keywords": [
     "pomodoro",

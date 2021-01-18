@@ -9,11 +9,11 @@ import { playStateType } from '../../../pages';
 import Timer from './Timer';
 
 // Story
-storiesOf('General', module)
-    .add('Timer', () => {
+storiesOf('Timer', module)
+    .add('default', () => {
         const [playState, setPlayState] = useState<playStateType>('INITIAL');
 
         const handleToggle = () => setPlayState(playState === 'ACTIVE' ? 'PAUSED' : 'ACTIVE');
 
-        return <Timer playState={playState} duration={5 * 1000} handleToggle={handleToggle} />
+        return <Timer playState={playState} duration={25 * 60 * 1000} handleToggle={handleToggle} />
     });
