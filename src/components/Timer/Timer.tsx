@@ -17,17 +17,19 @@ interface IProps {
 
 const pad = (num: number, size: number) => ('000' + num).slice(size * -1);
 
-const getFormattedTimeLeft = (timeLeft: number) => {
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+const getFormattedTimeLeft = (timeLeft: number, isOverHour: boolean) => {
+    const hours = Math.floor((timeLeft / 1000) / 60 / 60);
+    const minutes = Math.floor((timeLeft / 1000) / 60) % 60;
+    const seconds = Math.floor((timeLeft / 1000) - minutes * 60);
 
-    return `${pad(minutes, 2)}:${pad(seconds, 2)}`;
+    return isOverHour ? `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}` : `${pad(minutes, 2)}:${pad(seconds, 2)}`
 }
 
 // Component
 let interval: any;
 const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => {
     const [timeLeft, setTimeLeft] = useState<number>(duration);
+    const isOverHour = timeLeft >= 1000 * 60 * 60;
 
     useEffect(() => {
         switch (playState) {
@@ -95,9 +97,9 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
 
     return <div className='timer-wrapper'>
         <div className='timer' {...attributes}>
-            <span className='timer__counter'>{getFormattedTimeLeft(timeLeft)}</span>
+            <span className='timer__counter' data-is-over-hour={isOverHour}>{getFormattedTimeLeft(timeLeft, isOverHour)}</span>
             <svg className='timer__stroke' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle ref={circleRef} cx="50" cy="50" r="50" style={{ strokeDasharray: `${circumference} ${circumference}`, strokeDashoffset: `${offset}` }} />
+                <circle ref={circleRef} cx="50" cy="50" r="50" style={{ strokeDasharray: `${circumference} ${circumference} `, strokeDashoffset: `${offset} ` }} />
             </svg>
             <span className='timer__play-state'>{getLabelForPlaystate()}</span>
             <button className='timer__toggle' onClick={handleClick}>{getLabelForPlaystate()}</button>

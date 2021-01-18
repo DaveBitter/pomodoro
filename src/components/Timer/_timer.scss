@@ -74,6 +74,11 @@ $timer-background-color: darken($color-base-dark, 2%);
     &__counter {
         @include text-xxxl;
         font-weight: $font-weight-bold;
+        transition: font-size $transition-timing-fast $transition-easing-cubic;
+
+        &[data-is-over-hour='true'] {
+            @include text-xxl;
+        }
     }
 
     &__play-state {
