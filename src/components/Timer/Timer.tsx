@@ -40,6 +40,7 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
                 return;
             case 'ACTIVE':
                 if (timeLeft <= 0) {
+                    audioRef?.current?.play();
                     return;
                 }
 
@@ -74,6 +75,7 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
     const [circumference, setCircumference] = useState(0);
     const [offset, setOffset] = useState(0);
     const circleRef = useRef<SVGCircleElement | null>(null)
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         if (!circleRef.current) { return; }
@@ -100,6 +102,9 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
             <span className='timer__play-state'>{getLabelForPlaystate()}</span>
             <button className='timer__toggle' onClick={handleClick}>{getLabelForPlaystate()}</button>
         </div>
+        <audio ref={audioRef}>
+            <source src="/audio/notification.mp3" type="audio/mpeg" />
+        </audio>
     </div>;
 };
 
