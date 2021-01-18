@@ -8,6 +8,9 @@ import { mount } from 'enzyme';
 // Component test setup
 const setup = (props: any) => {
     const _props = {
+        isOpen: false,
+        trigger: <button>Trigger</button>,
+        handleClose: () => { },
         ...props
     };
 
@@ -26,5 +29,17 @@ describe('<Modal />', () => {
         });
 
         expect(wrapper.childAt(0).exists());
+    });
+
+    it('should call handleClose when close button pressed', () => {
+        const stub = jest.fn();
+        const { wrapper } = setup({
+            handleClose: stub
+        });
+
+        const trigger = wrapper.find('[data-modal-close]');
+        trigger?.simulate('click');
+
+        expect(stub).toHaveBeenCalled();
     });
 });

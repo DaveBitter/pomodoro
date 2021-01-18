@@ -33,7 +33,7 @@ interface IPropsTabAccordion {
 
 // Component
 const TabAccordionPanel = ({ children, isActive, ...attributes }: IPropsTabAccordionPanel) => {
-    return <li className='tab-accordion__panel' data-is-active={isActive} {...attributes}>
+    return <li className='tab-accordion__panel' data-is-active={isActive} data-panel {...attributes}>
         {children}
     </li>;
 };
@@ -45,8 +45,8 @@ const TabAccordionPanels = ({ children, ...attributes }: IPropsTabAccordionPanel
 };
 
 const TabAccordionTab = ({ children, handleClick, isActive, ...attributes }: IPropsTabAccordionTab) => {
-    return <li className='tab-accordion__tab' data-is-active={isActive} {...attributes}>
-        <button className='tab-accordion__tab-button' onClick={handleClick}>{children}</button>
+    return <li className='tab-accordion__tab' data-is-active={isActive} data-tab {...attributes}>
+        <button className='tab-accordion__tab-button' onClick={handleClick} data-tab-trigger>{children}</button>
     </li>;
 };
 

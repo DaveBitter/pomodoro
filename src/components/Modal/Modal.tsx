@@ -33,7 +33,7 @@ const Modal = ({ children, trigger, heading, handleClose, isOpen, ...attributes 
         <div className='modal__container'>
             <div className='modal__header'>
                 {heading && <h2 className='modal__heading h3'>{heading}</h2>}
-                <button className='modal__close' onClick={handleClose}>close</button>
+                <button className='modal__close' onClick={handleClose} data-modal-close>close</button>
             </div>
             <div className='modal__content'>
                 {children}

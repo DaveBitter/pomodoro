@@ -33,10 +33,10 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
         switch (playState) {
             case 'INITIAL':
                 setTimeLeft(duration);
-                clearInterval(interval)
+                clearTimeout(interval)
                 return;
             case 'PAUSED':
-                clearInterval(interval)
+                clearTimeout(interval)
                 return;
             case 'ACTIVE':
                 if (timeLeft <= 0) {
@@ -80,7 +80,7 @@ const Timer = ({ playState, duration, handleToggle, ...attributes }: IProps) => 
     useEffect(() => {
         if (!circleRef.current) { return; }
 
-        const radius = circleRef.current.r.baseVal.value;
+        const radius = circleRef.current.r?.baseVal.value;
         const updatedCircumference = radius && radius * 2 * Math.PI;
 
         const updatedOffset = updatedCircumference - timeLeft / duration * updatedCircumference;
