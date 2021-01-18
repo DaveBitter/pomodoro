@@ -1,5 +1,7 @@
 # Pomodoro
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21fe5a42-b319-4bfa-ad98-8d0bcfbcd5bb/deploy-status)](https://app.netlify.com/sites/pomodoro-davebitter/deploys)
+
 Pomodoro is a template repository to quickly start a new [Next.js](https://nextjs.org/docs/getting-started) project.
 
 ## Getting started
