@@ -2,7 +2,12 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/21fe5a42-b319-4bfa-ad98-8d0bcfbcd5bb/deploy-status)](https://app.netlify.com/sites/pomodoro-davebitter/deploys)
 
-Pomodoro is a template repository to quickly start a new [Next.js](https://nextjs.org/docs/getting-started) project.
+Pomodoro is a neumorphic Pomodoro/Timer to help you stay on track!
+
+![screenshot of the pomodoro timer](public/img/hero.jpg)
+
+## Demo
+You can try Pomodoro out yourself at [pomodoro.davebitter.com](https://pomodoro.davebitter.com) or look at the individual components at [pomodoro.davebitter.com/components](https://pomodoro.davebitter.com/components).
 
 ## Getting started
 Pomodoro was bootstrapped with Next.js. Please, read the docs to get up to speed with how pages, routing, server-side functions and more works.
